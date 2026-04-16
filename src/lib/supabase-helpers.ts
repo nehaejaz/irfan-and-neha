@@ -40,7 +40,17 @@ export async function getEventsByHostCode(hostCode: string) {
   return data;
 }
 
-export async function updateEvent(id: string, hostCode: string, data: Record<string, unknown>) {
+export async function updateEvent(id: string, hostCode: string, data: Partial<{
+  event_name: string;
+  partner1_name: string;
+  partner2_name: string;
+  event_date: string;
+  event_time: string;
+  venue: string;
+  venue_address: string | null;
+  card_image_url: string | null;
+  message: string | null;
+}>) {
   const { data: event, error } = await supabase
     .from("events")
     .update(data)
