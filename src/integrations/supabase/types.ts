@@ -14,7 +14,101 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      events: {
+        Row: {
+          card_image_url: string | null
+          created_at: string
+          event_date: string
+          event_name: string
+          event_time: string
+          host_code: string
+          id: string
+          message: string | null
+          partner1_name: string
+          partner2_name: string
+          slug: string
+          updated_at: string
+          venue: string
+          venue_address: string | null
+        }
+        Insert: {
+          card_image_url?: string | null
+          created_at?: string
+          event_date: string
+          event_name: string
+          event_time: string
+          host_code?: string
+          id?: string
+          message?: string | null
+          partner1_name: string
+          partner2_name: string
+          slug: string
+          updated_at?: string
+          venue: string
+          venue_address?: string | null
+        }
+        Update: {
+          card_image_url?: string | null
+          created_at?: string
+          event_date?: string
+          event_name?: string
+          event_time?: string
+          host_code?: string
+          id?: string
+          message?: string | null
+          partner1_name?: string
+          partner2_name?: string
+          slug?: string
+          updated_at?: string
+          venue?: string
+          venue_address?: string | null
+        }
+        Relationships: []
+      }
+      rsvps: {
+        Row: {
+          attending: boolean
+          created_at: string
+          dietary_notes: string | null
+          email: string | null
+          event_id: string
+          guest_name: string
+          id: string
+          message: string | null
+          plus_ones: number
+        }
+        Insert: {
+          attending?: boolean
+          created_at?: string
+          dietary_notes?: string | null
+          email?: string | null
+          event_id: string
+          guest_name: string
+          id?: string
+          message?: string | null
+          plus_ones?: number
+        }
+        Update: {
+          attending?: boolean
+          created_at?: string
+          dietary_notes?: string | null
+          email?: string | null
+          event_id?: string
+          guest_name?: string
+          id?: string
+          message?: string | null
+          plus_ones?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "rsvps_event_id_fkey"
+            columns: ["event_id"]
+            isOneToOne: false
+            referencedRelation: "events"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
