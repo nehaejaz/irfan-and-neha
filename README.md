@@ -1,6 +1,6 @@
 # Wedding RSVP App
 
-Aethelgard is a wedding RSVP application that lets hosts create beautiful digital invitation cards and share them with guests, who can then RSVP directly on the invitation page.
+This wedding RSVP application lets hosts create beautiful digital invitation cards and share them with guests, who can then RSVP directly on the invitation page.
 
 Built with **React 18, Vite, TypeScript, Tailwind CSS**, and powered by **Lovable Cloud** (database + image storage).
 
